@@ -3,6 +3,7 @@ import { requireRole } from './auth.js';
 import { listInvoices, getInvoice } from '../db/invoice.repository.js';
 import { exportOrdersCsv } from '../services/billing/OrderExport.js';
 import { enqueueInvoiceEmail } from '../hermes/jobs.js';
+import { exportCustomerInvoicesCsv } from '../services/billing/csv.js';
 
 export function registerRoutes(app: Express) {
   app.get('/health', (_req, res) => res.json({ ok: true }));
@@ -31,5 +32,12 @@ export function registerRoutes(app: Express) {
     res.setHeader('content-type', 'text/csv; charset=utf-8');
     res.setHeader('content-disposition', 'attachment; filename="orders.csv"');
     await exportOrdersCsv({ month: String(req.query.month) }, res);
+  });
+
+  app.get('/customers/:id/invoices.csv', async (req, res) => {
+    const csv = await exportCustomerInvoicesCsv(req.params.id);
+    res.setHeader('content-type', 'text/csv; charset=utf-8');
+    res.setHeader('content-disposition', `attachment; filename="invoices-${req.params.id}.csv"`);
+    res.send(csv);
   });
 }
