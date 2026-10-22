@@ -1,12 +1,12 @@
 import { describe, it, expect, vi } from 'vitest';
 
-vi.mock('../../src/hermes/queue', () => ({
+vi.mock('../../src/hermes/queue.js', () => ({
   hermes: { add: vi.fn() },
   DEFAULT_JOB_OPTIONS: { attempts: 5 },
 }));
 
-import { hermes } from '../../src/hermes/queue';
-import { enqueueInvoiceEmail } from '../../src/hermes/jobs';
+import { hermes } from '../../src/hermes/queue.js';
+import { enqueueInvoiceEmail } from '../../src/hermes/jobs.js';
 
 describe('Hermes jobs', () => {
   it('uses the invoice id as idempotency key for new invoices', async () => {

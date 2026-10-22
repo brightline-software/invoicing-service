@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { calculateVat, vatRate } from '../../src/services/billing/tax';
-import { Money } from '../../src/utils/money';
+import { calculateVat, vatRate } from '../../src/services/billing/tax.js';
+import { Money } from '../../src/utils/money.js';
 
 describe('VAT', () => {
   it('uses 19% for Romania', () => {

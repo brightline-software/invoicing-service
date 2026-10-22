@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { csvEscape, toCsvRow } from '../../src/services/billing/OrderExport';
+import { csvEscape, toCsvRow } from '../../src/services/billing/OrderExport.js';
 
 describe('OrderExport CSV helpers', () => {
   it('quotes values with commas', () => {

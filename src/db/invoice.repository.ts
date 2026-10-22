@@ -72,6 +72,8 @@ export async function* streamOrdersForMonth(month: string) {
   }
 }
 
+// Rows come untyped from pg; this is the one place we map them.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function mapInvoice(r: Record<string, any>): Invoice {
   return {
     id: r.id,

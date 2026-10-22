@@ -13,7 +13,7 @@ const DUNNING_SUBJECTS = {
 
 async function send(to: string, subject: string, body: string) {
   if (!config.MAILER_API_KEY) {
-    logger.warn({ to, subject }, 'MAILER_API_KEY not set, email printed instead of sent');
+    logger.warn({ to, subject, body }, 'MAILER_API_KEY not set, email printed instead of sent');
     return;
   }
   // The mailer client lives in @brightline/mailer (internal package).

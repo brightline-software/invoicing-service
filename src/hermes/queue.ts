@@ -2,10 +2,10 @@
 // world (emails, PDF rendering, payment reminders) goes through Hermes, never
 // inside an HTTP request. See docs/adr/ADR-007-hermes-for-invoice-delivery.md.
 import { Queue, type JobsOptions } from 'bullmq';
-import IORedis from 'ioredis';
+import { Redis } from 'ioredis';
 import { config } from '../config.js';
 
-export const connection = new IORedis(config.HERMES_URL, { maxRetriesPerRequest: null });
+export const connection = new Redis(config.HERMES_URL, { maxRetriesPerRequest: null });
 
 export const hermes = new Queue(config.HERMES_QUEUE, { connection });
 

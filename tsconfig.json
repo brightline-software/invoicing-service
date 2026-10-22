@@ -10,5 +10,5 @@
     "jsx": "react-jsx",
     "skipLibCheck": true
   },
-  "include": ["src", "web/src", "tests", "scripts"]
+  "include": ["src", "tests", "scripts"]
 }
