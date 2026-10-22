@@ -1,0 +1,19 @@
+# Default owners for everything in the repo
+*                         @brightline-radu @brightline-ioana
+
+# Billing (invoices, VAT, emails, export): Ana owns billing
+/src/services/billing/    @brightline-ana @brightline-radu
+
+# Hermes queue and worker
+/src/hermes/              @brightline-radu
+/docs/runbooks/           @brightline-radu
+
+# Atlas integration and auth
+/src/atlas/               @brightline-ioana
+
+# Database
+/src/db/                  @brightline-radu
+/db/                      @brightline-radu
+
+# Web UI
+/web/                     @brightline-ioana
